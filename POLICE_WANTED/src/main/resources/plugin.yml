@@ -1,0 +1,4 @@
+name: POLICE_WANTED
+version: '${version}'
+main: com.ulxsth.police_wanted.POLICE_WANTED
+api-version: 1.19
