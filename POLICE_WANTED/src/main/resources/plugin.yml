@@ -1,4 +1,4 @@
 name: POLICE_WANTED
 version: '${version}'
-main: com.ulxsth.police_wanted.POLICE_WANTED
+main: com.ulxsth.police_wanted.PoliceWantedPlugin
 api-version: 1.19
