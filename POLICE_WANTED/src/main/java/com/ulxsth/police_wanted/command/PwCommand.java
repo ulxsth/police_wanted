@@ -2,6 +2,8 @@ package com.ulxsth.police_wanted.command;
 
 import com.ulxsth.police_wanted.PoliceWantedPlugin;
 import com.ulxsth.police_wanted.scheduler.GameTimerScheduler;
+import com.ulxsth.police_wanted.usecase.BroadcastMessageUseCase;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -10,8 +12,7 @@ import org.jetbrains.annotations.NotNull;
 public class PwCommand implements CommandExecutor {
     private static final String COMMAND_HELP = "USAGE:\n" +
             "/pw start <time> : ゲームを開始します\n" +
-            "/pw stop : ゲームを終了します\n"
-            ;
+            "/pw stop : ゲームを終了します\n";
 
     private static final PoliceWantedPlugin plugin = PoliceWantedPlugin.getInstance();
     GameTimerScheduler gameTimerScheduler = null;
@@ -56,7 +57,7 @@ public class PwCommand implements CommandExecutor {
             gameTimerScheduler.cancel();
             this.gameTimerScheduler = null;
 
-            sender.sendMessage("ゲームを終了しました");
+            BroadcastMessageUseCase.execute("ゲームを終了しました");
             return true;
         }
 

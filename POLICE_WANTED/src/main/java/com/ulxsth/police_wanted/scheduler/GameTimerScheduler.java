@@ -20,17 +20,24 @@ public class GameTimerScheduler extends BukkitRunnable {
 
     @Override
     public void run() {
-        if(now <= 0) {
-            this.cancel();
-        }
-
         // ボスバーに表示
         if(this.bossBar == null) {
-            this.bossBar = Bukkit.createBossBar("残り時間: " + now + "秒", BarColor.BLUE, BarStyle.SEGMENTED_12);
+            this.bossBar = Bukkit.createBossBar("残り時間: " + this.now + "秒", BarColor.BLUE, BarStyle.SEGMENTED_12);
         }
-        this.bossBar.setProgress((double) now / limit);
+        this.bossBar.setTitle("残り時間: " + this.now + "秒");
+        this.bossBar.setProgress((double) this.now / limit);
         this.bossBar.setVisible(true);
         DisplayBossBarForEveryoneUseCase.execute(bossBar);
-        now--;
+        this.now--;
+
+        if(this.now < 0) {
+            this.cancel();
+        }
+    }
+
+    @Override
+    public void cancel() {
+        super.cancel();
+        this.bossBar.setVisible(false);
     }
 }
