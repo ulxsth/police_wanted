@@ -3,7 +3,6 @@ package com.ulxsth.police_wanted.command;
 import com.ulxsth.police_wanted.PoliceWantedPlugin;
 import com.ulxsth.police_wanted.scheduler.GameTimerScheduler;
 import com.ulxsth.police_wanted.usecase.BroadcastMessageUseCase;
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
