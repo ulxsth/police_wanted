@@ -2,3 +2,12 @@ name: POLICE_WANTED
 version: '${version}'
 main: com.ulxsth.police_wanted.PoliceWantedPlugin
 api-version: 1.19
+commands:
+  pw:
+    aliases: [ pw ]
+    description: "高菜のナナチ、高菜ナチ"
+    permission: police_wanted.admin
+
+permissions:
+  police_wanted.admin:
+    default: op
