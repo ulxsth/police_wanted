@@ -1,0 +1,14 @@
+baton:
+  material: "WOODEN_SWORD"
+  id: "baton"
+  name: "警棒"
+
+enhanced_baton:
+  material: "STONE_SWORD"
+  id: "enhanced_baton"
+  name: "強化警棒"
+
+katana:
+    material: "IRON_SWORD"
+    id: "katana"
+    name: "刀"
