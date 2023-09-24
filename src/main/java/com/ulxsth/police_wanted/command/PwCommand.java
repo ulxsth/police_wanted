@@ -71,7 +71,6 @@ public class PwCommand implements CommandExecutor {
         if(args[0].equalsIgnoreCase("give")) {
             String itemName = args[1];
             int amount = Integer.parseInt(args[2]);
-            String playerName = args[3];
 
             // 引数が足りない
             if(args.length < 2) {
@@ -93,7 +92,7 @@ public class PwCommand implements CommandExecutor {
             }
 
             // アイテムを渡す
-            ItemStack itemStack = null;
+            ItemStack itemStack;
             try {
                 itemStack = CreateItemStackUseCase.execute(itemName, amount);
             } catch (IllegalArgumentException e) {
