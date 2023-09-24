@@ -17,8 +17,7 @@ public class PwCommand implements CommandExecutor {
     private static final String COMMAND_HELP = "USAGE:\n" +
             "/pw start <time> : ゲームを開始します\n" +
             "/pw stop : ゲームを終了します\n" +
-            "/pw give <item> <amount> : アイテムを入手します\n" +
-            "/pw give <item> <amount> <player> : 指定したプレイヤーにアイテムを入手させます\n";
+            "/pw give <item> [amount] [player] : アイテムを渡します\n";
 
     private static final PoliceWantedPlugin plugin = PoliceWantedPlugin.getInstance();
     GameTimerScheduler gameTimerScheduler = null;
@@ -70,17 +69,18 @@ public class PwCommand implements CommandExecutor {
         // give
         if(args[0].equalsIgnoreCase("give")) {
             String itemName = args[1];
-            int amount = Integer.parseInt(args[2]);
 
             // 引数が足りない
-            if(args.length < 2) {
+            if(args.length < 1) {
                 sender.sendMessage(COMMAND_HELP);
                 return true;
             }
 
-            // 引数が数字でない
-            if(!args[2].matches("^[0-9]+$")) {
-                sender.sendMessage("個数は数字で指定してください");
+            int amount;
+            try {
+                amount = args.length >= 3 ? Integer.parseInt(args[2]) : 1;
+            } catch (NumberFormatException e) {
+                sender.sendMessage("amountは数字で指定してください");
                 return true;
             }
 

@@ -22,5 +22,3 @@ gradle-app.setting
 .classpath
 .idea/**/workspace.xml
 .idea/**/tasks.xml
-/.idea/
-.idea/workspace.xml
