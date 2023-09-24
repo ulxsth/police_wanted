@@ -18,8 +18,9 @@ public class ItemConfig {
     public static void initConfig() {
         if(!new File(PATH).exists()) {
             plugin.saveResource("item.yml", false);
-             config = YamlConfiguration.loadConfiguration(new File(PATH));
         }
+
+        config = YamlConfiguration.loadConfiguration(new File(PATH));
     }
 
     public static GameItem getItemById(String id) {
