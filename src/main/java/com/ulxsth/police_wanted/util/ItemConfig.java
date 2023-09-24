@@ -22,9 +22,9 @@ public class ItemConfig {
     }
 
     public static GameItem getItemById(String id) {
-        ConfigurationSection section = config.getConfigurationSection("id");
+        ConfigurationSection section = config.getConfigurationSection(id);
         if(section == null) {
-            throw new IllegalArgumentException("id is invalid");
+            throw new IllegalArgumentException("cant find: " + id);
         }
 
         String materialId = section.getString(id + ".material");
