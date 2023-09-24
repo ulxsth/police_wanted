@@ -69,6 +69,10 @@ public class PwCommand implements CommandExecutor {
 
         // give
         if(args[0].equalsIgnoreCase("give")) {
+            String itemName = args[1];
+            int amount = Integer.parseInt(args[2]);
+            String playerName = args[3];
+
             // 引数が足りない
             if(args.length < 2) {
                 sender.sendMessage(COMMAND_HELP);
@@ -91,7 +95,7 @@ public class PwCommand implements CommandExecutor {
             // アイテムを渡す
             ItemStack itemStack = null;
             try {
-                CreateItemStackUseCase.execute(args[1], Integer.parseInt(args[2]));
+                itemStack = CreateItemStackUseCase.execute(itemName, amount);
             } catch (IllegalArgumentException e) {
                 sender.sendMessage("指定したidのアイテムは存在しません");
                 plugin.logger.info(e.getMessage());
